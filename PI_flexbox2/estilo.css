@@ -11,6 +11,12 @@
     background-color: #d0d3d4;
     border-radius: 4px;
 }
+.base2{
+    margin-bottom: 15px;
+    background-color: #d0d3d4;
+    border-radius: 4px;
+    height: 400px;
+}
 
 .box1 {
     background-color: #63b1bc;
@@ -61,4 +67,15 @@ h1 {
 .container6 {
     display: flex;
     justify-content: space-evenly;
+}
+
+.container-exercicioB{
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.container-desafio{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
 }
