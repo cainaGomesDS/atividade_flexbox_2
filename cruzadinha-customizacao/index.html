@@ -32,7 +32,7 @@
             </div>
             <div id="div_game">
                 <br>
-                <div id="div_information">
+                <div id="div_information" >
                     <h2>Intruções do Jogo</h2><br><br>
                     <p>
                         Clique em "Começar o Jogo" para iniciar uma partida <br><br>
@@ -75,7 +75,7 @@
     var special_words = ['CPU', 'ULA', 'Registradores', 'RAM', 'ROM', 'EPROM', 'FLASH', 'Memória de Massa', 'DMA', 'CS', 'Adress Bus', 'Data Bus', 'I5', 'I7', 'Dual Core', 'Quad Core'];
 
     var questions_list = [
-        'É a parte do processador que realiza cálculos e processa instruções',
+        'É o componente principal de um computador que executa instruções, processa dados e controla as operações do sistema',
         'Executa operações de cálculos matemáticos e lógicos. Qual é o nome deste componente?',
         'São pequenas memórias internas para armazenar dados temporários',
         'É uma Memória temporária onde dados são armazenados enquanto o computador está ligado. Qual é a sigla deste componente?',
@@ -337,6 +337,7 @@
         bt_start.style.display = 'none';
         bt_destroyGame.style.display = 'block';
         div_questions.style.display = 'block';
+        div_information.style.display= 'none';
         div_information.innerHTML = '';
         renderGrid();
         gameSequence();
@@ -475,6 +476,8 @@
 
             setTimeout(function () {
                 div_verifiedAnswer.style.display = 'none';
+                div_verifiedAnswer.classList.remove('correctAnswer');
+                div_verifiedAnswer.classList.remove('wrongAnswer');
             }, 3000);
 
             input_answer.value = '';
