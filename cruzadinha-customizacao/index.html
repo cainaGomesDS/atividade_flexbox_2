@@ -70,22 +70,22 @@
     var special_words = ['CPU', 'ULA', 'Registradores', 'RAM', 'ROM', 'EPROM', 'FLASH', 'Memória de Massa', 'DMA', 'CS', 'Adress Bus', 'Data Bus', 'I5', 'I7', 'Dual Core', 'Quad Core'];
 
 var questions_list = [
-    'Qual é a sigla para Central Process Unit?',
-    'Um circuto digital que realiza operações lógicas e aritméticas. Qual é o nome deste componente?',
-    'Tipo de memória que se encontra no topo da hierarquia de memória',
-    'Tipo de memória volátil que tem como nome Random Acess Memory. Qual é a sigla deste componente?',
-    'Tipo de memória não volátil que oferece dados apenas para leitura',
-    'Tipo de memória não volátil que precisa ter seu chip exposto a luz ultravioleta para apagar seu conteúdo',
-    'Tipo particular de EEPROM que mantém as informações armazenadas sem a necessidade de uma fonte de energia elétrica',
-    'Tipo de memória que precisa ter seu conteúdo copiado na RAM para poder ser executado pela CPU',
-    'Permite que periféricos acessem diretamente a RAM sem ocupar processamento',
-    'Também conhecido como Slave Select (SS). Usado para selecionar um ou um conjunto de circuitos que estão conectados no computador',
-    'Grupo de linhas ou trilhas usadas para se referir a um endereço físico na memória. O número de trilhas determina a quantidade de endereços na memória física',
-    'Também chamado de Memory Bus. É responsável para carregar os dados.',
-    'Modelo de processador desenvolvido pela Intel qu teve sua primeira versão lançada em setembro de 2009',
-    'Modelo de processador desenvolvido pela Intel qu teve sua primeira versão lançada em novembro de 2008',    
-    'Tipo de processador que possui dois processadores ou melhor dizendo ‘dois centros, núcleos ou cores de execução‘ no mesmo circuito integrado.  Cada core tem sua própria memória cash e controlador o que permite que funcione mais efetivamente do que um processador single',
-    'Segue o mesmo princípio de um dual-core, mas agora em teoria tem o dobro da capacidade de processamento'
+    'É a parte do processador que realiza cálculos e processa instruções',
+    'Executa operações de cálculos matemáticos e lógicos. Qual é o nome deste componente?',
+    'São pequenas memórias internas para armazenar dados temporários',
+    'É uma Memória temporária onde dados são armazenados enquanto o computador está ligado. Qual é a sigla deste componente?',
+    'É uma Memória permanente que guarda dados essenciais para o funcionamento do sistema, como o BIOS',
+    'Um tipo de memória não-volátil usada para armazenar pequenas quantidades de dados que precisam ser salvos mesmo quando não está sendo alimentada eletricamente',
+    'Ela é capaz de preservar os dados armazenados por um longo tempo sem precisar de alimentação elétrica.',
+    'Sua função é armazenar grande quantidade de dados e evitar que estes se percam com o desligamento do computador',
+    'Permite que componentes de hardware, como placas de vídeo ou som, acessem diretamente a memória, sem precisar da CPU para cada passo, liberando-a para outras tarefas',
+    'É uma linha de controle em eletrônica digital usada para selecionar um circuito integrado a partir de vários conectados à mesma bus de computador',
+    'Permite identificar qual o componente e a localização exata dentro dele, para que o processador possa comunicar com ele e enviar os respectivos dados',
+    'Circulam os dados que são recebidos ou enviados. Um processador de 16 bits tem 16 fios transmitindo dados e recebendo dados.',
+    '9 de Setembro de 2009, vários núcleos, suportam a tecnologia Intel Hyper-Threading, que permite que cada núcleo lide com dois threads.',
+    '17 de novembro de 2008, 8 núcleos e 16 threads, suporta a tecnologia Hyper-Threading.',    
+    'Permite que o computador pode realizar duas tarefas ao mesmo tempo, dividindo a carga de trabalho entre os dois núcleos. Por exemplo, enquanto um núcleo executa um programa de edição de fotos, o outro núcleo pode estar executando um programa de reprodução de vídeoe',
+    'É uma CPU com quatro núcleos independentes, cada um capaz de executar diferentes instruções simultaneamente, seguindo a mesma lógica do dual core'
 ];
 
 var filledCell = [2, 20, 38, 133, 134, 135, 59, 77, 95, 113, 131, 149,
@@ -402,10 +402,7 @@ function gameSequence() {
             destroyGrid();
         }, 3000);
     }
-
-
 }
-
 
 function pontuation() {
     div_information.style.display = 'block';
@@ -416,7 +413,6 @@ function pontuation() {
 function renderGrid() {
     var tableGame = '<table id="gridGame" cellspacing=0 cellpadding=0>';
 
-    // &nbsp its used to set null value to a cell
     var cellContent_tableGame = '&nbsp';
     var cell = 0;
     for (var row = 1; row <= heightTable; row++) {
@@ -436,8 +432,6 @@ function renderGrid() {
 
     paintCells();
 }
-
-
 
 function paintCells() {
     
@@ -459,11 +453,9 @@ function paintCells() {
 }
 
 function verify() {
-    var answer = input_answer.value;
-
+    var answer = (input_answer.value).toLowerCase();
     if (answer != '') {
-        // answer = answer.toLowerCase();
-        if (answer == special_words[cont_correctAnswer]) {
+        if (answer == (special_words[cont_correctAnswer]).toLowerCase()) {
             div_verifiedAnswer.classList.add('correctAnswer');
             div_verifiedAnswer.innerHTML = '<br>Resposta Correta!';
             cont_correctAnswer++;
